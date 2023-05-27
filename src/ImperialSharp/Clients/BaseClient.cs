@@ -177,4 +177,15 @@ public class BaseClient
         var responseString = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<T>(responseString);
     }
+
+    /// <summary>
+    /// Sends a DELETE request to the specified endpoint.
+    /// </summary>
+    /// <param name="endpoint">The endpoint to send the request to.</param>
+    /// <returns>The HttpResponseMessage</returns>
+    public async Task<HttpResponseMessage> DeleteAsyncWithResponse(string endpoint)
+    {
+        SetAuthorizationHeader();
+        return await _httpClient.DeleteAsync($"{BaseEndpoint}{endpoint}");
+    }
 }
