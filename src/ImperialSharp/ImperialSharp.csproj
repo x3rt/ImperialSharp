@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>net5.0;net6.0;net7.0;netstandard2.1</TargetFrameworks>
         <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);NETSDK1138</NoWarn>
         <LangVersion>11</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
@@ -28,12 +29,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
-        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath="" />
+        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath=""/>
+        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 
 </Project>
