@@ -80,8 +80,14 @@ public class BaseClient
     /// </summary>
     private void SetAuthorizationHeader()
     {
-        _httpClient.DefaultRequestHeaders.Authorization =
-            _apiKey != null ? new AuthenticationHeaderValue("", _apiKey) : null;
+        if (_apiKey is not null)
+        {
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", _apiKey);
+        }
+        else
+        {
+            _httpClient.DefaultRequestHeaders.Remove("Authorization");
+        }
     }
 
     /// <summary>
