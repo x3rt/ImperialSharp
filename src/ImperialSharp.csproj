@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <LangVersion>11</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <Deterministic>true</Deterministic>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+        <!--Nuget Settings-->
+        <Authors>IMPERIAL, x3rt</Authors>
+        <Description>Dotnet API wrapper for https://imperialb.in</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageId>ImperialSharp</PackageId>
+        <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://imperialb.in</PackageProjectUrl>
+        <PackageTags>Imperial, API, Wrapper, Dotnet, C#, CSharp, Rest</PackageTags>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/x3rt/ImperialSharp</RepositoryUrl>
+        <Title>ImperialSharp</Title>
+    </PropertyGroup>
+
+    <!--TODO: Remove this once out of testing-->
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageId>x3rt.ImperialSharp</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
+        <None Include="LICENSE" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>
