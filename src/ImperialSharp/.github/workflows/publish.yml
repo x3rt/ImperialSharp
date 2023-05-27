@@ -1,0 +1,33 @@
+name: Build and deploy
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+    branches:
+      - dev
+    tags:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  nuget:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '3.1.x'
+      - name: Git why do you do this
+        run: git fetch --prune --unshallow
+      - name: Create and push NuGet package
+        run: |
+          dotnet pack -c Release -o nuget
+          dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          

@@ -12,6 +12,7 @@
         <Authors>IMPERIAL, x3rt</Authors>
         <Description>Dotnet API wrapper for https://imperialb.in</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
         <PackageIcon>icon.png</PackageIcon>
         <PackageId>ImperialSharp</PackageId>
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
@@ -20,6 +21,7 @@
         <PackageVersion>0.1.0-alpha</PackageVersion>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/x3rt/ImperialSharp</RepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <Title>ImperialSharp</Title>
     </PropertyGroup>
 
@@ -29,6 +31,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Content Include=".github\workflows\publish.yml" Visible="falses"/>
         <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath=""/>
         <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
