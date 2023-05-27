@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace ImperialSharp.Clients;
 
-public class BaseClient
+public abstract class BaseClient : IDisposable
 {
     private readonly HttpClient _httpClient;
     private string? _apiKey;
@@ -14,11 +14,10 @@ public class BaseClient
 
     private string BaseEndpoint => $"{BaseUrl}{Version}/";
 
-
     /// <summary>
     /// Default constructor
     /// </summary>
-    public BaseClient()
+    protected BaseClient()
     {
         _httpClient = new HttpClient();
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "ImperialSharp");
@@ -28,7 +27,7 @@ public class BaseClient
     /// Constructor for a client with a custom HttpClient
     /// </summary>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public BaseClient(HttpClient httpClient)
+    protected BaseClient(HttpClient httpClient)
     {
         _httpClient = httpClient;
     }
@@ -37,7 +36,7 @@ public class BaseClient
     /// Constructor for a client with an API key
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
-    public BaseClient(string apiKey) : this()
+    protected BaseClient(string apiKey) : this()
     {
         _apiKey = apiKey;
     }
@@ -47,7 +46,7 @@ public class BaseClient
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public BaseClient(string apiKey, HttpClient httpClient) : this(httpClient)
+    protected BaseClient(string apiKey, HttpClient httpClient) : this(httpClient)
     {
         _apiKey = apiKey;
     }
@@ -81,7 +80,7 @@ public class BaseClient
     /// <param name="endpoint">The endpoint to send the request to.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> GetAsync<T>(string endpoint)
+    protected async Task<T?> GetAsync<T>(string endpoint)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.GetAsync($"{BaseEndpoint}{endpoint}");
@@ -96,7 +95,7 @@ public class BaseClient
     /// <param name="body">The body of the request.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> PostAsync<T>(string endpoint, object? body)
+    protected async Task<T?> PostAsync<T>(string endpoint, object? body)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.PostAsync($"{BaseEndpoint}{endpoint}",
@@ -112,7 +111,7 @@ public class BaseClient
     /// <param name="body">The body of the request.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> PostAsync<T>(string endpoint, string body)
+    protected async Task<T?> PostAsync<T>(string endpoint, string body)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.PostAsync($"{BaseEndpoint}{endpoint}",
@@ -128,7 +127,7 @@ public class BaseClient
     /// <param name="body">The body of the request.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> PatchAsync<T>(string endpoint, object? body)
+    protected async Task<T?> PatchAsync<T>(string endpoint, object? body)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.PatchAsync($"{BaseEndpoint}{endpoint}",
@@ -144,7 +143,7 @@ public class BaseClient
     /// <param name="body">The body of the request.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> PatchAsync<T>(string endpoint, string body)
+    protected async Task<T?> PatchAsync<T>(string endpoint, string body)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.PatchAsync($"{BaseEndpoint}{endpoint}",
@@ -159,7 +158,7 @@ public class BaseClient
     /// <param name="endpoint">The endpoint to send the request to.</param>
     /// <typeparam name="T">The type of the response.</typeparam>
     /// <returns>The response from the API.</returns>
-    public async Task<T?> DeleteAsync<T>(string endpoint)
+    protected async Task<T?> DeleteAsync<T>(string endpoint)
     {
         SetAuthorizationHeader();
         var response = await _httpClient.DeleteAsync($"{BaseEndpoint}{endpoint}");
@@ -172,9 +171,14 @@ public class BaseClient
     /// </summary>
     /// <param name="endpoint">The endpoint to send the request to.</param>
     /// <returns>The HttpResponseMessage</returns>
-    public async Task<HttpResponseMessage> DeleteAsyncWithResponse(string endpoint)
+    protected async Task<HttpResponseMessage> DeleteAsyncWithResponse(string endpoint)
     {
         SetAuthorizationHeader();
         return await _httpClient.DeleteAsync($"{BaseEndpoint}{endpoint}");
+    }
+
+    public void Dispose()
+    {
+        _httpClient.Dispose();
     }
 }
