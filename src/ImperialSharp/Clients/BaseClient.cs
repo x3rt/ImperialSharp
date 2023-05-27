@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using ImperialSharp.Extensions;
 using Newtonsoft.Json;
 
 namespace ImperialSharp.Clients;
