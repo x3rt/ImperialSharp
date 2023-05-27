@@ -5,24 +5,14 @@ namespace ImperialSharp.Clients;
 
 public class BaseClient
 {
-    private string _baseUrl = "https://api.imperialb.in/";
-    private string _version = "v1";
     private readonly HttpClient _httpClient;
-    private string? _apiKey = null;
+    private string? _apiKey;
 
-    public string BaseUrl
-    {
-        get => _baseUrl;
-        set => _baseUrl = value;
-    }
+    public string BaseUrl { get; set; } = "https://api.imperialb.in/";
 
-    public string Version
-    {
-        get => _version;
-        set => _version = value;
-    }
+    public string Version { get; set; } = "v1";
 
-    public string BaseEndpoint => $"{BaseUrl}{Version}/";
+    private string BaseEndpoint => $"{BaseUrl}{Version}/";
 
 
     /// <summary>
