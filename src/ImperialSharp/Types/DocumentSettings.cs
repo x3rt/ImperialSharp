@@ -75,7 +75,7 @@ public class DocumentSettings
     /// </summary>
     /// <param name="isPublic">Whether or not the document is public.</param>
     /// <returns>The current instance of <see cref="DocumentSettings"/>.</returns>
-    public DocumentSettings WithPublic(bool isPublic = true)
+    public DocumentSettings AsPublic(bool isPublic = true)
     {
         Public = isPublic;
         return this;
