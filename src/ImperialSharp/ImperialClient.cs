@@ -6,14 +6,14 @@ using Newtonsoft.Json;
 
 namespace ImperialSharp;
 
-public class Client : BaseClient
+public class ImperialClient : BaseClient
 {
     #region Constructors
 
     /// <summary>
     /// Default constructor
     /// </summary>
-    public Client() : base()
+    public ImperialClient() : base()
     {
     }
 
@@ -21,7 +21,7 @@ public class Client : BaseClient
     /// Constructor for a client with a custom HttpClient
     /// </summary>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public Client(HttpClient httpClient) : base(httpClient)
+    public ImperialClient(HttpClient httpClient) : base(httpClient)
     {
     }
 
@@ -29,7 +29,7 @@ public class Client : BaseClient
     /// Constructor for a client with an API key
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
-    public Client(string apiKey) : base(apiKey)
+    public ImperialClient(string apiKey) : base(apiKey)
     {
     }
 
@@ -38,7 +38,7 @@ public class Client : BaseClient
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public Client(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
+    public ImperialClient(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
     {
     }
 
