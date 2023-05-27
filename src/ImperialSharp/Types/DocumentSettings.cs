@@ -11,8 +11,9 @@ public class DocumentSettings
     [JsonProperty("encrypted")] public bool Encrypted { get; set; }
     [JsonProperty("password")] public string Password { private get; set; } = string.Empty;
     [JsonProperty("public")] public bool Public { get; set; }
-    [JsonProperty("editors")] public Creator[] Editors { get; set; } = Array.Empty<Creator>();
 
+    [JsonProperty("editors", ItemConverterType = typeof(CreatorConverter))]
+    public Creator[] Editors { get; set; } = Array.Empty<Creator>();
 
     /// <summary>
     /// Sets the language of the document.
