@@ -1,4 +1,4 @@
-﻿namespace ImperialSharp.Types;
+﻿namespace ImperialSharp;
 
 using Newtonsoft.Json;
 

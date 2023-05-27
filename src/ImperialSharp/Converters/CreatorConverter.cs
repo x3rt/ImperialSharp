@@ -1,5 +1,4 @@
-﻿using ImperialSharp.Types;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ImperialSharp.Converters;

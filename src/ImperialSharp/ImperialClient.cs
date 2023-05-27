@@ -1,7 +1,6 @@
 ﻿using ImperialSharp.Clients;
 using ImperialSharp.Request;
 using ImperialSharp.Response;
-using ImperialSharp.Types;
 using Newtonsoft.Json;
 
 namespace ImperialSharp;

@@ -1,7 +1,7 @@
 ﻿using ImperialSharp.Converters;
 using Newtonsoft.Json;
 
-namespace ImperialSharp.Types;
+namespace ImperialSharp;
 
 public class DocumentSettings
 {

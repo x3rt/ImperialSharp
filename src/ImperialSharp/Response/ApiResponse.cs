@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using ImperialSharp.Types;
 
 namespace ImperialSharp.Response;
 

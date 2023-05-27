@@ -18,7 +18,7 @@
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
         <PackageProjectUrl>https://imperialb.in</PackageProjectUrl>
         <PackageTags>Imperial, API, Wrapper, Dotnet, C#, CSharp, Rest</PackageTags>
-        <PackageVersion>0.3.0-alpha</PackageVersion>
+        <PackageVersion>0.4.0-alpha</PackageVersion>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/x3rt/ImperialSharp</RepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
