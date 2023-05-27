@@ -31,7 +31,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include=".github\workflows\publish.yml" Visible="falses"/>
         <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath=""/>
         <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
