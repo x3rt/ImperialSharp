@@ -29,12 +29,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath=""/>
-        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
+        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
+        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

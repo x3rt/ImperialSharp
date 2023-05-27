@@ -52,9 +52,9 @@ public class Client : BaseClient
     /// <param name="request">The document request object.</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> CreateDocumentAsync(CreateDocumentRequest request)
+    public async Task<ApiResponse> CreateDocumentAsync(CreateDocumentRequest request)
     {
-        var response = await PostAsync<DocumentResponse>("document", request);
+        var response = await PostAsync<ApiResponse>("document", request);
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -65,10 +65,10 @@ public class Client : BaseClient
     /// <param name="settings">Settings for the document. [Optional]</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> CreateDocumentAsync(string content, DocumentSettings? settings = null)
+    public async Task<ApiResponse> CreateDocumentAsync(string content, DocumentSettings? settings = null)
     {
         var request = new CreateDocumentRequest(content, settings);
-        var response = await PostAsync<DocumentResponse>("document", request);
+        var response = await PostAsync<ApiResponse>("document", request);
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -80,11 +80,11 @@ public class Client : BaseClient
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> EditDocumentAsync(string id, string content,
+    public async Task<ApiResponse> EditDocumentAsync(string id, string content,
         DocumentSettings? settings = null)
     {
         var request = new EditDocumentRequest(id, content, settings);
-        var response = await PatchAsync<DocumentResponse>($"document", request);
+        var response = await PatchAsync<ApiResponse>($"document", request);
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -95,10 +95,10 @@ public class Client : BaseClient
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> EditDocumentAsync(string id, DocumentSettings settings)
+    public async Task<ApiResponse> EditDocumentAsync(string id, DocumentSettings settings)
     {
         var request = new EditDocumentRequest(id, settings);
-        var response = await PatchAsync<DocumentResponse>($"document", request);
+        var response = await PatchAsync<ApiResponse>($"document", request);
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -108,9 +108,9 @@ public class Client : BaseClient
     /// <param name="request">The document request object.</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> EditDocumentAsync(EditDocumentRequest request)
+    public async Task<ApiResponse> EditDocumentAsync(EditDocumentRequest request)
     {
-        var response = await PatchAsync<DocumentResponse>($"document", request);
+        var response = await PatchAsync<ApiResponse>($"document", request);
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -120,9 +120,9 @@ public class Client : BaseClient
     /// <param name="id">The ID of the document to be retrieved.</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> GetDocumentAsync(string id)
+    public async Task<ApiResponse> GetDocumentAsync(string id)
     {
-        var response = await GetAsync<DocumentResponse>($"document/{id}");
+        var response = await GetAsync<ApiResponse>($"document/{id}");
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -133,9 +133,9 @@ public class Client : BaseClient
     /// <param name="password">The password of the document to be retrieved.</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> GetDocumentAsync(string id, string password)
+    public async Task<ApiResponse> GetDocumentAsync(string id, string password)
     {
-        var response = await GetAsync<DocumentResponse>($"document/{id}?password={password}");
+        var response = await GetAsync<ApiResponse>($"document/{id}?password={password}");
         return response ?? throw new NullReferenceException("Response was null");
     }
 
@@ -144,12 +144,12 @@ public class Client : BaseClient
     /// </summary>
     /// <param name="id">The ID of the document to be deleted.</param>
     /// <returns>The API response.</returns>
-    public async Task<DocumentResponse> DeleteDocumentAsync(string id)
+    public async Task<ApiResponse> DeleteDocumentAsync(string id)
     {
         var response = await DeleteAsyncWithResponse($"document/{id}");
         var responseString = await response.Content.ReadAsStringAsync();
-        var deserializedResponse = JsonConvert.DeserializeObject<DocumentResponse>(responseString);
-        return deserializedResponse ?? new DocumentResponse(response.IsSuccessStatusCode);
+        var deserializedResponse = JsonConvert.DeserializeObject<ApiResponse>(responseString);
+        return deserializedResponse ?? new ApiResponse(response.IsSuccessStatusCode);
     }
 
     #endregion

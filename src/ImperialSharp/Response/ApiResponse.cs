@@ -6,7 +6,7 @@ namespace ImperialSharp.Response;
 /// <summary>
 /// Represents a response from the API.
 /// </summary>
-public class DocumentResponse
+public class ApiResponse
 {
     /// <summary>
     /// Whether the request was successful or not.
@@ -35,7 +35,7 @@ public class DocumentResponse
     /// <param name="success">Whether the request was successful or not.</param>
     /// <param name="data">The data returned from the API. Null if the request was not successful.</param>
     /// <param name="error">The error returned from the API. Null if the request was successful.</param>
-    public DocumentResponse(bool success, Data? data = null, Error? error = null)
+    public ApiResponse(bool success, Data? data = null, Error? error = null)
     {
         Success = success;
         Data = data;
@@ -46,7 +46,7 @@ public class DocumentResponse
     /// Constructor for a response from the API.
     /// </summary>
     /// <param name="success">Whether the request was successful or not.</param>
-    public DocumentResponse(bool success)
+    public ApiResponse(bool success)
     {
         Success = success;
     }
@@ -54,7 +54,7 @@ public class DocumentResponse
     /// <summary>
     /// Default constructor
     /// </summary>
-    public DocumentResponse()
+    public ApiResponse()
     {
     }
 
