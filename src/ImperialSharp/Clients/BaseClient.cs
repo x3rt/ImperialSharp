@@ -16,7 +16,7 @@ public class BaseClient
 
 
     /// <summary>
-    ///  Default constructor
+    /// Default constructor
     /// </summary>
     public BaseClient()
     {

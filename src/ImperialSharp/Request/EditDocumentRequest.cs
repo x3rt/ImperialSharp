@@ -9,20 +9,20 @@ namespace ImperialSharp.Request;
 public class EditDocumentRequest
 {
     /// <summary>
-    ///   The ID of the document to edit. [Required]
+    /// The ID of the document to edit. [Required]
     /// </summary>
     [JsonProperty("id")]
     [JsonRequired]
     public string Id { get; set; } = null!;
 
     /// <summary>
-    ///  The new content of the document. [Optional]
+    /// The new content of the document. [Optional]
     /// </summary>
     [JsonProperty("content")]
     public string? Content { get; set; }
 
     /// <summary>
-    ///  The new settings of the document. [Optional]
+    /// The new settings of the document. [Optional]
     /// </summary>
     [JsonProperty("settings")]
     public DocumentSettings? Settings
@@ -41,7 +41,7 @@ public class EditDocumentRequest
     }
 
     /// <summary>
-    ///  Constructor for a request to edit a document.
+    /// Constructor for a request to edit a document.
     /// </summary>
     /// <param name="id">ID of the document to edit. [Required]</param>
     /// <param name="content">The new content of the document. Null to keep current content. [Optional]</param>
@@ -76,7 +76,7 @@ public class EditDocumentRequest
     }
 
     /// <summary>
-    ///  Sets the settings of the document.
+    /// Sets the settings of the document.
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
     /// <returns>The current Request to be chained.</returns>

@@ -9,14 +9,14 @@ namespace ImperialSharp.Request;
 public class CreateDocumentRequest
 {
     /// <summary>
-    ///  The content of the document. [Required]
+    /// The content of the document. [Required]
     /// </summary>
     [JsonProperty("content")]
     [JsonRequired]
     public string Content { get; set; } = null!;
 
     /// <summary>
-    ///  The settings of the document. [Optional]
+    /// The settings of the document. [Optional]
     /// </summary>
     [JsonProperty("settings")]
     public DocumentSettings? Settings
@@ -57,7 +57,7 @@ public class CreateDocumentRequest
     }
 
     /// <summary>
-    ///  Sets the settings of the document.
+    /// Sets the settings of the document.
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
     /// <returns>The current Request to be chained.</returns>
