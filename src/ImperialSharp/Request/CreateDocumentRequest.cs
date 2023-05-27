@@ -49,7 +49,7 @@ public class CreateDocumentRequest
     /// Sets the content of the document.
     /// </summary>
     /// <param name="content">The content to be set.</param>
-    /// <returns>The current Request to be chained.</returns>
+    /// <returns>The current instance of <see cref="CreateDocumentRequest"/>.</returns>
     public CreateDocumentRequest WithContent(string content)
     {
         Content = content;
@@ -60,7 +60,7 @@ public class CreateDocumentRequest
     /// Sets the settings of the document.
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
-    /// <returns>The current Request to be chained.</returns>
+    /// <returns>The current instance of <see cref="CreateDocumentRequest"/>.</returns>
     public CreateDocumentRequest WithSettings(DocumentSettings settings)
     {
         Settings = settings;

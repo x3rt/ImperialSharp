@@ -68,7 +68,7 @@ public class EditDocumentRequest
     /// Sets the content of the document.
     /// </summary>
     /// <param name="content">The content to be set.</param>
-    /// <returns>The current Request to be chained.</returns>
+    /// <returns>The current instance of <see cref="EditDocumentRequest"/>.</returns>
     public EditDocumentRequest WithContent(string content)
     {
         Content = content;
@@ -79,7 +79,7 @@ public class EditDocumentRequest
     /// Sets the settings of the document.
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
-    /// <returns>The current Request to be chained.</returns>
+    /// <returns>The current instance of <see cref="EditDocumentRequest"/>.</returns>
     public EditDocumentRequest WithSettings(DocumentSettings settings)
     {
         Settings = settings;

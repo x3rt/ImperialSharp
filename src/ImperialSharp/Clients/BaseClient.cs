@@ -56,7 +56,7 @@ public abstract class BaseClient : IDisposable
     /// Sets the API key for the client.
     /// </summary>
     /// <param name="apiKey">The API key to be set.</param>
-    /// <returns>The current client to be chained.</returns>
+    /// <returns>The current instance of <see cref="BaseClient"/>.</returns>
     public BaseClient WithApiKey(string apiKey)
     {
         _apiKey = apiKey;
