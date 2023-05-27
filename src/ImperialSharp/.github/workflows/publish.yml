@@ -6,7 +6,8 @@ on:
       - 'docs/**'
       - '**/*.md'
     branches:
-      - dev
+      - master
+      - Workflow
     tags:
       - '*'
 
