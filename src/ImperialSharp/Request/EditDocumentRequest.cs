@@ -25,7 +25,7 @@ public class EditDocumentRequest
     ///  The new settings of the document. [Optional]
     /// </summary>
     [JsonProperty("settings")]
-    public DocumentSettings? Settings { get; set; }
+    public RequestDocumentSettings? Settings { get; set; }
 
     /// <summary>
     /// Default constructor
@@ -40,7 +40,7 @@ public class EditDocumentRequest
     /// <param name="id">ID of the document to edit. [Required]</param>
     /// <param name="content">The new content of the document. Null to keep current content. [Optional]</param>
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
-    public EditDocumentRequest(string id, string? content = null, DocumentSettings? settings = null)
+    public EditDocumentRequest(string id, string? content = null, RequestDocumentSettings? settings = null)
     {
         Id = id;
         Content = content;
@@ -63,7 +63,7 @@ public class EditDocumentRequest
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
     /// <returns>The current Request to be chained.</returns>
-    public EditDocumentRequest WithSettings(DocumentSettings settings)
+    public EditDocumentRequest WithSettings(RequestDocumentSettings settings)
     {
         Settings = settings;
         return this;

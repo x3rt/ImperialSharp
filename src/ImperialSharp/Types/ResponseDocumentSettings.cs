@@ -2,7 +2,7 @@
 
 namespace ImperialSharp.Types;
 
-public class DocumentSettings
+public class ResponseDocumentSettings
 {
     [JsonProperty("language")] public string Language { get; set; } = null!;
     [JsonProperty("image_embed")] public bool ImageEmbed { get; set; }
