@@ -1,6 +1,4 @@
-﻿using System.Formats.Asn1;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Text;
 using Newtonsoft.Json;
 
 namespace ImperialSharp.Clients;
