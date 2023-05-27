@@ -1,18 +1,19 @@
-﻿using ImperialSharp.Request;
+﻿using ImperialSharp.Clients;
+using ImperialSharp.Request;
 using ImperialSharp.Response;
 using ImperialSharp.Types;
 using Newtonsoft.Json;
 
-namespace ImperialSharp.Clients;
+namespace ImperialSharp;
 
-public class ApiClient : BaseClient
+public class Client : BaseClient
 {
     #region Constructors
 
     /// <summary>
     /// Default constructor
     /// </summary>
-    public ApiClient() : base()
+    public Client() : base()
     {
     }
 
@@ -20,7 +21,7 @@ public class ApiClient : BaseClient
     /// Constructor for a client with a custom HttpClient
     /// </summary>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public ApiClient(HttpClient httpClient) : base(httpClient)
+    public Client(HttpClient httpClient) : base(httpClient)
     {
     }
 
@@ -28,7 +29,7 @@ public class ApiClient : BaseClient
     /// Constructor for a client with an API key
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
-    public ApiClient(string apiKey) : base(apiKey)
+    public Client(string apiKey) : base(apiKey)
     {
     }
 
@@ -37,7 +38,7 @@ public class ApiClient : BaseClient
     /// </summary>
     /// <param name="apiKey">The API key to be used for requests.</param>
     /// <param name="httpClient">The HttpClient to be used for requests.</param>
-    public ApiClient(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
+    public Client(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
     {
     }
 
