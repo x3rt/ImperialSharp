@@ -29,20 +29,37 @@ public class DocumentResponse
     [JsonProperty("error")]
     public Error? Error { get; set; }
 
-    public DocumentResponse(bool success, Data? data = null)
+    /// <summary>
+    /// Constructor for a response from the API.
+    /// </summary>
+    /// <param name="success">Whether the request was successful or not.</param>
+    /// <param name="data">The data returned from the API. Null if the request was not successful.</param>
+    /// <param name="error">The error returned from the API. Null if the request was successful.</param>
+    public DocumentResponse(bool success, Data? data = null, Error? error = null)
     {
         Success = success;
         Data = data;
-    }
-
-    public DocumentResponse(bool success, Error? error = null)
-    {
-        Success = success;
         Error = error;
     }
 
+    /// <summary>
+    /// Constructor for a response from the API.
+    /// </summary>
+    /// <param name="success">Whether the request was successful or not.</param>
     public DocumentResponse(bool success)
     {
         Success = success;
+    }
+
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    public DocumentResponse()
+    {
+    }
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
     }
 }
