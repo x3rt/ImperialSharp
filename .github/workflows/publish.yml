@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Build and Publish
 
 on:
   push:
@@ -25,10 +25,11 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x'
-      - name: Git why do you do this
-        run: git fetch --prune --unshallow
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build project
+        run: dotnet build --configuration Release
       - name: Create and push NuGet package
         run: |
           dotnet pack -c Release -o nuget
           dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-          
