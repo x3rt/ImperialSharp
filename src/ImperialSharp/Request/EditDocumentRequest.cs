@@ -48,6 +48,17 @@ public class EditDocumentRequest
     }
 
     /// <summary>
+    /// Constructor for a request to edit a document.
+    /// </summary>
+    /// <param name="id">ID of the document to edit. [Required]</param>
+    /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
+    public EditDocumentRequest(string id, RequestDocumentSettings settings)
+    {
+        Id = id;
+        Settings = settings;
+    }
+
+    /// <summary>
     /// Sets the content of the document.
     /// </summary>
     /// <param name="content">The content to be set.</param>
