@@ -12,4 +12,9 @@ public class Data
     [JsonProperty("timestamps")] public Timestamps Timestamps { get; set; } = null!;
     [JsonProperty("settings")] public DocumentSettings Settings { get; set; } = null!;
     [JsonProperty("links")] public Links Links { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
+    }
 }

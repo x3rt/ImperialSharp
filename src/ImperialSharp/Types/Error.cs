@@ -5,9 +5,9 @@ namespace ImperialSharp.Types;
 public class Error
 {
     [JsonProperty("message")] public string Message { get; set; } = string.Empty;
-
+    
     public override string ToString()
     {
-        return Message;
+        return JsonConvert.SerializeObject(this);
     }
 }

@@ -11,4 +11,9 @@ public class DocumentSettings
     [JsonProperty("password")] public string Password { private get; set; } = string.Empty;
     [JsonProperty("public")] public bool Public { get; set; }
     [JsonProperty("editors")] public Creator[] Editors { get; set; } = Array.Empty<Creator>();
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
+    }
 }

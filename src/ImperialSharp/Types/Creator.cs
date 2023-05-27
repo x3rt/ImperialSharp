@@ -9,4 +9,9 @@ public class Creator
     [JsonProperty("username")] public string Username { get; set; } = null!;
     [JsonProperty("flags")] public int Flags { get; set; }
     [JsonProperty("icon")] public string? Icon { get; set; }
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
+    }
 }
