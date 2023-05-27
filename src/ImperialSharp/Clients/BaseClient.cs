@@ -34,8 +34,6 @@ public class BaseClient
     {
         _httpClient = new HttpClient();
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "ImperialSharp");
-        _httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
-        _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
     }
 
     /// <summary>
