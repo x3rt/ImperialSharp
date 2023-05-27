@@ -28,8 +28,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
-        <None Include="LICENSE" Pack="true" PackagePath="" />
+        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath=""/>
+        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
 
 </Project>

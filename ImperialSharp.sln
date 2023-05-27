@@ -1,5 +1,5 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImperialSharp", "src\ImperialSharp.csproj", "{BEF89523-6934-4045-8379-93AAAD24BBEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImperialSharp", "src\ImperialSharp\ImperialSharp.csproj", "{4C266B67-2358-4A92-8712-4B8936D431BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -7,9 +7,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BEF89523-6934-4045-8379-93AAAD24BBEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEF89523-6934-4045-8379-93AAAD24BBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEF89523-6934-4045-8379-93AAAD24BBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEF89523-6934-4045-8379-93AAAD24BBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C266B67-2358-4A92-8712-4B8936D431BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C266B67-2358-4A92-8712-4B8936D431BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C266B67-2358-4A92-8712-4B8936D431BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C266B67-2358-4A92-8712-4B8936D431BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
