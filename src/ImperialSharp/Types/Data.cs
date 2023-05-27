@@ -10,6 +10,6 @@ public class Data
     [JsonProperty("views")] public int Views { get; set; }
     [JsonProperty("gist_url")] public string? GistUrl { get; set; }
     [JsonProperty("timestamps")] public Timestamps Timestamps { get; set; } = null!;
-    [JsonProperty("settings")] public ResponseDocumentSettings Settings { get; set; } = null!;
+    [JsonProperty("settings")] public DocumentSettings Settings { get; set; } = null!;
     [JsonProperty("links")] public Links Links { get; set; } = null!;
 }

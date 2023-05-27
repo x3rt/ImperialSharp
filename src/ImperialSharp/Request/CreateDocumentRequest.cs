@@ -19,7 +19,13 @@ public class CreateDocumentRequest
     ///  The settings of the document. [Optional]
     /// </summary>
     [JsonProperty("settings")]
-    public RequestDocumentSettings? Settings { get; set; }
+    public DocumentSettings? Settings
+    {
+        get => _settings ?? new DocumentSettings();
+        set => _settings = value;
+    }
+
+    private DocumentSettings? _settings;
 
     /// <summary>
     /// Default constructor
@@ -33,7 +39,7 @@ public class CreateDocumentRequest
     /// </summary>
     /// <param name="content">The content of the document. [Required]</param>
     /// <param name="settings">The settings of the document. [Optional]</param>
-    public CreateDocumentRequest(string content, RequestDocumentSettings? settings = null)
+    public CreateDocumentRequest(string content, DocumentSettings? settings = null)
     {
         Content = content;
         Settings = settings;
@@ -55,7 +61,7 @@ public class CreateDocumentRequest
     /// </summary>
     /// <param name="settings">The settings to be set.</param>
     /// <returns>The current Request to be chained.</returns>
-    public CreateDocumentRequest WithSettings(RequestDocumentSettings settings)
+    public CreateDocumentRequest WithSettings(DocumentSettings settings)
     {
         Settings = settings;
         return this;

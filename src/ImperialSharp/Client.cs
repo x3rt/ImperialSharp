@@ -65,7 +65,7 @@ public class Client : BaseClient
     /// <param name="settings">Settings for the document. [Optional]</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> CreateDocumentAsync(string content, RequestDocumentSettings? settings = null)
+    public async Task<DocumentResponse> CreateDocumentAsync(string content, DocumentSettings? settings = null)
     {
         var request = new CreateDocumentRequest(content, settings);
         var response = await PostAsync<DocumentResponse>("document", request);
@@ -81,7 +81,7 @@ public class Client : BaseClient
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
     public async Task<DocumentResponse> EditDocumentAsync(string id, string content,
-        RequestDocumentSettings? settings = null)
+        DocumentSettings? settings = null)
     {
         var request = new EditDocumentRequest(id, content, settings);
         var response = await PatchAsync<DocumentResponse>($"document", request);
@@ -95,7 +95,7 @@ public class Client : BaseClient
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
     /// <returns>The API response.</returns>
     /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<DocumentResponse> EditDocumentAsync(string id, RequestDocumentSettings settings)
+    public async Task<DocumentResponse> EditDocumentAsync(string id, DocumentSettings settings)
     {
         var request = new EditDocumentRequest(id, settings);
         var response = await PatchAsync<DocumentResponse>($"document", request);
