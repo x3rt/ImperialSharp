@@ -49,12 +49,11 @@ public class ImperialClient : BaseClient
     /// Creates a document.
     /// </summary>
     /// <param name="request">The document request object.</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> CreateDocumentAsync(CreateDocumentRequest request)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> CreateDocumentAsync(CreateDocumentRequest request)
     {
         var response = await PostAsync<ApiResponse>("document", request);
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
@@ -62,13 +61,12 @@ public class ImperialClient : BaseClient
     /// </summary>
     /// <param name="content">Content of the document. [Required]</param>
     /// <param name="settings">Settings for the document. [Optional]</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> CreateDocumentAsync(string content, DocumentSettings? settings = null)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> CreateDocumentAsync(string content, DocumentSettings? settings = null)
     {
         var request = new CreateDocumentRequest(content, settings);
         var response = await PostAsync<ApiResponse>("document", request);
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
@@ -77,14 +75,13 @@ public class ImperialClient : BaseClient
     /// <param name="id">The ID of the document to be edited.</param>
     /// <param name="content">The new content of the document. Null to keep current content. [Optional]</param>
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> EditDocumentAsync(string id, string content,
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> EditDocumentAsync(string id, string content,
         DocumentSettings? settings = null)
     {
         var request = new EditDocumentRequest(id, content, settings);
         var response = await PatchAsync<ApiResponse>($"document", request);
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
@@ -92,37 +89,34 @@ public class ImperialClient : BaseClient
     /// </summary>
     /// <param name="id">The ID of the document to be edited.</param>
     /// <param name="settings">The new settings of the document. Null to keep current settings. [Optional]</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> EditDocumentAsync(string id, DocumentSettings settings)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> EditDocumentAsync(string id, DocumentSettings settings)
     {
         var request = new EditDocumentRequest(id, settings);
         var response = await PatchAsync<ApiResponse>($"document", request);
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
     /// Edits a document.
     /// </summary>
     /// <param name="request">The document request object.</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> EditDocumentAsync(EditDocumentRequest request)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> EditDocumentAsync(EditDocumentRequest request)
     {
         var response = await PatchAsync<ApiResponse>($"document", request);
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
     /// Gets a document.
     /// </summary>
     /// <param name="id">The ID of the document to be retrieved.</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> GetDocumentAsync(string id)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> GetDocumentAsync(string id)
     {
         var response = await GetAsync<ApiResponse>($"document/{id}");
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
@@ -130,19 +124,18 @@ public class ImperialClient : BaseClient
     /// </summary>
     /// <param name="id">The ID of the document to be retrieved.</param>
     /// <param name="password">The password of the document to be retrieved.</param>
-    /// <returns>The API response.</returns>
-    /// <exception cref="NullReferenceException">Thrown when the response is null.</exception>
-    public async Task<ApiResponse> GetDocumentAsync(string id, string password)
+    /// <returns>The API response or null if the response was invalid.</returns>
+    public async Task<ApiResponse?> GetDocumentAsync(string id, string password)
     {
         var response = await GetAsync<ApiResponse>($"document/{id}?password={password}");
-        return response ?? throw new NullReferenceException("Response was null");
+        return response;
     }
 
     /// <summary>
     /// Deletes a document.
     /// </summary>
     /// <param name="id">The ID of the document to be deleted.</param>
-    /// <returns>The API response.</returns>
+    /// <returns>The API response</returns>
     public async Task<ApiResponse> DeleteDocumentAsync(string id)
     {
         var response = await DeleteAsyncWithResponse($"document/{id}");
